@@ -6,7 +6,7 @@
 
 Build Docker images from a Dockerfile and a "context":
 
-```sh
+```shell
 docker build
 ```
 
@@ -14,19 +14,19 @@ docker build
 
 Show all top level images, their repository and tags, and their size:
 
-```sh
+```shell
 docker images
 ```
 
 Remove one or more images:
 
-```sh
+```shell
 docker rmi <image-id> 
 ```
 
 Remove all images:
 
-```sh
+```shell
 docker rmi $(docker images -q) 
 ```
 
@@ -34,77 +34,77 @@ docker rmi $(docker images -q)
 
 List all running containers:
 
-```sh
+```shell
 docker ps
 ```
 
 List all containers stopped, running:
 
-```sh
+```shell
 docker ps -a
 ```
 
 Stop the container which is running:
 
-```sh
+```shell
 docker stop <container-id>
 ```
 
 Stops all running containers:
 
-```sh
+```shell
 docker stop $(docker ps -a -q) 
 ```
 
 Start the container which is stopped:
 
-```sh
+```shell
 docker start <container-id>
 ```
 
 Restart the container which is running:
 
-```sh
+```shell
 docker restart <container-id>
 ```
 
 List port mappings of a specific container:
 
-```sh
+```shell
 docker port <container-id>
 ```
 
 Remove one or more stopped containers:
 
-```sh
+```shell
 docker rm <container-id> 
 ```
 
 Remove all stopped containers:
 
-```sh
+```shell
 docker container prune  
 ```
 
-```sh
+```shell
 docker rm $(docker ps -a -q) 
 ```
 
 Remove the running container forcefully:
 
-```sh
+```shell
 docker rm -f <container-id>
 ```
 
 Update and stop a container that is in a crash-loop:
 
-```sh
+```shell
 docker update –restart=no && docker stop 
 ```
 
 Display the running processes of a container:
 
-```sh
+```shell
 docker top <container-id>
 ```
 
@@ -112,19 +112,19 @@ docker top <container-id>
 
 Connect to linux container and execute commands in container:
 
-```sh
+```shell
 docker exec -it <container-id> /bin/bash
 ```
 
 Bash shell with root if container is running in a different user context:
 
-```sh
+```shell
 docker exec -itu <container-id> root /bin/bash
 ```
 
 If bash is not available use `/bin/sh`:
 
-```sh
+```shell
 docker exec -itu <container-id> /bin/sh
 ```
 
@@ -132,7 +132,7 @@ docker exec -itu <container-id> /bin/sh
 
 Pull the image from docker hub repository:
 
-```sh
+```shell
 docker pull <image-info>
 ```
 
@@ -140,13 +140,13 @@ docker pull <image-info>
 
 Logout from docker hub:
 
-```sh
+```shell
 docker logout
 ```
 
 Login to docker hub
 
-```sh
+```shell
 docker login -u username -p password
 ```
 
@@ -154,7 +154,7 @@ docker login -u username -p password
 
 Display a live stream of container(s) resource usage statistics:
 
-```sh
+```shell
 docker stats
 ```
 
@@ -162,7 +162,7 @@ docker stats
 
 Show the Docker version information:
 
-```sh
+```shell
 docker version
 ```
 

@@ -8,10 +8,10 @@
 npm install -g @angular/cli
 ```
 
-### Updating (all in one line)
+### Updating (all in one command)
 
 ```shell
-npm uninstall -g @angular/cli cache clean \
+npm uninstall -g @angular/cli cache clean;\
 npm install -g @angular/cli@latest
 ```
 
@@ -167,12 +167,12 @@ ng serve
 All in one line (without `ng serve`):
 
 ```shell
-ng new app --directory ./ --create-application false --defaults; \
-ng add @angular-eslint/schematics; \
-ng generate @angular-eslint/schematics:application app --project-root --routing --style scss --defaults --strict; \
-npm install --save-dev --save-exact prettier; \
-echo {} >.prettierrc.json; \
-cp .gitignore .prettierignore; \
+ng new app --directory ./ --create-application false --defaults;\
+ng add @angular-eslint/schematics;\
+ng generate @angular-eslint/schematics:application app --project-root --routing --style scss --defaults --strict;\
+npm install --save-dev --save-exact prettier;\
+echo {} >.prettierrc.json;\
+cp .gitignore .prettierignore;\
 npx prettier --write .
 ```
 
