@@ -1,18 +1,25 @@
 # Angular: Essential Commands
 
+## NPM
+
+```shell
+npm install -g npm
+```
+
 ## Angular CLI
 
-### Installing
+### Global installing
 
 ```shell
 npm install -g @angular/cli
 ```
 
-### Updating (all in one command)
+### Global updating (all in one command)
 
 ```shell
 npm uninstall -g @angular/cli cache clean;\
-npm install -g @angular/cli@latest
+npm install -g @angular/cli@latest;\
+ng version
 ```
 
 ## Generate a ...
