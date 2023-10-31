@@ -30,6 +30,10 @@ Remove all images:
 docker rmi $(docker images -q) 
 ```
 
+| Option        | Short | Description         |
+|---------------|-------|---------------------|
+| `--quiet`     | `-q`  | Only show image IDs |
+
 ### Containers
 
 List all running containers:
@@ -44,6 +48,10 @@ List all containers stopped, running:
 docker ps -a
 ```
 
+| Option  | Short | Description                                      |
+|---------|-------|--------------------------------------------------|
+| `--all` | `-a`  | Show all containers (default shows just running) |
+
 Stop the container which is running:
 
 ```shell
@@ -55,6 +63,11 @@ Stops all running containers:
 ```shell
 docker stop $(docker ps -a -q) 
 ```
+
+| Option    | Short | Description                                      |
+|-----------|-------|--------------------------------------------------|
+| `--all`   | `-a`  | Show all containers (default shows just running) |
+| `--quiet` | `-q`  | Only show image IDs                              |
 
 Start the container which is stopped:
 
@@ -90,6 +103,11 @@ docker container prune
 docker rm $(docker ps -a -q) 
 ```
 
+| Option    | Short | Description                                      |
+|-----------|-------|--------------------------------------------------|
+| `--all`   | `-a`  | Show all containers (default shows just running) |
+| `--quiet` | `-q`  | Only show image IDs                              |
+
 Remove the running container forcefully:
 
 ```shell
@@ -99,7 +117,7 @@ docker rm -f <container-id>
 Update and stop a container that is in a crash-loop:
 
 ```shell
-docker update –restart=no && docker stop 
+docker update –-restart=no && docker stop 
 ```
 
 Display the running processes of a container:
@@ -115,18 +133,45 @@ Connect to linux container and execute commands in container:
 ```shell
 docker exec -it <container-id> /bin/bash
 ```
+| Option          | Short | Description                          |
+|-----------------|-------|--------------------------------------|
+| `--interactive` |  `-i` | Keep STDIN open even if not attached |
+| `--tty`         |  `-t` | Allocate a pseudo-TTY                |
 
 Bash shell with root if container is running in a different user context:
 
 ```shell
 docker exec -itu <container-id> root /bin/bash
 ```
+| Option   | Short | Description                                           |
+|----------|-------|-------------------------------------------------------|
+| `--user` | `-u`  | Username or UID (format: <name\|uid>[:<group \|gid>]) |
 
 If bash is not available use `/bin/sh`:
 
 ```shell
 docker exec -itu <container-id> /bin/sh
 ```
+
+### Run
+
+Runs a command in a new container, pulling the image if needed and starting the container:
+
+```shell
+docker run --rm bash echo Hello!
+```
+
+| Option  | Short | Description                                      |
+|---------|-------|--------------------------------------------------|
+| `--rm`  |       | Automatically remove the container when it exits |
+
+```shell
+docker run -it --rm bash
+```
+| Option          | Short | Description                          |
+|-----------------|-------|--------------------------------------|
+| `--interactive` |  `-i` | Keep STDIN open even if not attached |
+| `--tty`         |  `-t` | Allocate a pseudo-TTY                |
 
 ### Pull
 
@@ -149,6 +194,10 @@ Login to docker hub
 ```shell
 docker login -u username -p password
 ```
+| Option       | Short | Description |
+|--------------|-------|-------------|
+| `--user`     | `-u`  | Username    |
+| `--password` | `-p`  | Password    |
 
 ### Stats
 
