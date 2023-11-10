@@ -1,5 +1,31 @@
 # Angular: Essential Commands
 
+<!-- TOC -->
+* [Angular: Essential Commands](#angular-essential-commands)
+  * [NPM](#npm)
+  * [Angular CLI](#angular-cli)
+    * [Global installing](#global-installing)
+    * [Global updating (all in one command)](#global-updating-all-in-one-command)
+  * [Generate a ...](#generate-a-)
+    * [Component](#component)
+    * [Service](#service)
+    * [Pipe](#pipe)
+    * [Directive](#directive)
+    * [Enum](#enum)
+    * [Module](#module)
+    * [Class](#class)
+    * [Interface](#interface)
+    * [Guard](#guard)
+    * [Interceptor](#interceptor)
+  * [Serve](#serve)
+  * [Testing](#testing)
+  * [Linting](#linting)
+  * [Environments](#environments)
+  * [Generate a new Angular app](#generate-a-new-angular-app)
+    * [Using directly ESlint schematics & Prettier (in root)](#using-directly-eslint-schematics--prettier-in-root)
+  * [Resources](#resources)
+<!-- TOC -->
+
 ## NPM
 
 ```shell

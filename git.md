@@ -1,5 +1,13 @@
 # Git: Essential Commands
 
+<!-- TOC -->
+* [Git: Essential Commands](#git-essential-commands)
+  * [Branch](#branch)
+    * [Create](#create)
+  * [Various](#various)
+  * [Resouces](#resouces)
+<!-- TOC -->
+
 ## Branch
 
 ### Create

@@ -1,16 +1,37 @@
 # Docker & Docker Compose: Essential Commands
 
+<!-- TOC -->
+* [Docker & Docker Compose: Essential Commands](#docker--docker-compose-essential-commands)
+  * [Docker](#docker)
+    * [Build](#build)
+    * [Images](#images)
+      * [List](#list)
+      * [Remove](#remove)
+    * [Containers](#containers)
+      * [List](#list-1)
+      * [Stop](#stop)
+      * [Start / Restart](#start--restart)
+      * [Remove](#remove-1)
+      * [Various](#various)
+    * [Exec](#exec)
+    * [Run](#run)
+      * [Run a command](#run-a-command)
+      * [Run in interactive mode](#run-in-interactive-mode)
+      * [Run and map a volume (with bash for example)](#run-and-map-a-volume-with-bash-for-example)
+      * [Run and map a port (with nginx for example)](#run-and-map-a-port-with-nginx-for-example)
+    * [Pull](#pull)
+    * [Hub](#hub)
+    * [Stats](#stats)
+    * [Version](#version)
+  * [Docker Compose](#docker-compose)
+  * [Resources](#resources)
+<!-- TOC -->
+
 ## Docker
 
-### Build
-
-Build Docker images from a Dockerfile and a "context":
-
-```shell
-docker build
-```
-
 ### Images
+
+#### List
 
 Show all top level images, their repository and tags, and their size:
 
@@ -18,10 +39,18 @@ Show all top level images, their repository and tags, and their size:
 docker images
 ```
 
+Show the history of an image:
+
+```shell
+docker history
+```
+
+#### Remove
+
 Remove one or more images:
 
 ```shell
-docker rmi <image-id> 
+docker rmi IMAGE_ID 
 ```
 
 Remove all images:
@@ -34,7 +63,21 @@ docker rmi $(docker images -q)
 |---------------|-------|---------------------|
 | `--quiet`     | `-q`  | Only show image IDs |
 
+#### Build
+
+Build Docker images from a Dockerfile and a "context":
+
+```shell
+docker build
+```
+
+```shell
+docker build -t php_soap:7.0.31
+```
+
 ### Containers
+
+#### List
 
 List all running containers:
 
@@ -52,10 +95,18 @@ docker ps -a
 |---------|-------|--------------------------------------------------|
 | `--all` | `-a`  | Show all containers (default shows just running) |
 
+List port mappings of a specific container:
+
+```shell
+docker port CONTAINER_ID
+```
+
+#### Stop
+
 Stop the container which is running:
 
 ```shell
-docker stop <container-id>
+docker stop CONTAINER_ID
 ```
 
 Stops all running containers:
@@ -69,28 +120,37 @@ docker stop $(docker ps -a -q)
 | `--all`   | `-a`  | Show all containers (default shows just running) |
 | `--quiet` | `-q`  | Only show image IDs                              |
 
+#### Start / Restart
+
 Start the container which is stopped:
 
 ```shell
-docker start <container-id>
+docker start CONTAINER_ID|NAME
 ```
+
+Start the container in interactive mode:
+
+```shell
+docker start -ai CONTAINER_ID|NAME
+```
+
+| Option          | Short | Description                              |
+|-----------------|-------|------------------------------------------|
+| `--attach`      | `-a`  | Attach STDOUT/STDERR and forward signals |
+| `--interactive` | `-i`  | Attach container's STDIN                 |
 
 Restart the container which is running:
 
 ```shell
-docker restart <container-id>
+docker restart CONTAINER_ID|NAME
 ```
 
-List port mappings of a specific container:
-
-```shell
-docker port <container-id>
-```
+#### Remove
 
 Remove one or more stopped containers:
 
 ```shell
-docker rm <container-id> 
+docker rm CONTAINER_ID|NAME
 ```
 
 Remove all stopped containers:
@@ -111,8 +171,10 @@ docker rm $(docker ps -a -q)
 Remove the running container forcefully:
 
 ```shell
-docker rm -f <container-id>
+docker rm -f CONTAINER_ID|NAME
 ```
+
+#### Various
 
 Update and stop a container that is in a crash-loop:
 
@@ -123,7 +185,7 @@ docker update –-restart=no && docker stop
 Display the running processes of a container:
 
 ```shell
-docker top <container-id>
+docker top CONTAINER_ID|NAME
 ```
 
 ### Exec
@@ -131,7 +193,7 @@ docker top <container-id>
 Connect to linux container and execute commands in container:
 
 ```shell
-docker exec -it <container-id> /bin/bash
+docker exec -it CONTAINER_ID|NAME /bin/bash
 ```
 | Option          | Short | Description                          |
 |-----------------|-------|--------------------------------------|
@@ -141,7 +203,7 @@ docker exec -it <container-id> /bin/bash
 Bash shell with root if container is running in a different user context:
 
 ```shell
-docker exec -itu <container-id> root /bin/bash
+docker exec -itu CONTAINER_ID|NAME root /bin/bash
 ```
 | Option   | Short | Description                                           |
 |----------|-------|-------------------------------------------------------|
@@ -150,12 +212,14 @@ docker exec -itu <container-id> root /bin/bash
 If bash is not available use `/bin/sh`:
 
 ```shell
-docker exec -itu <container-id> /bin/sh
+docker exec -itu CONTAINER_ID|NAME /bin/sh
 ```
 
 ### Run
 
-Runs a command in a new container, pulling the image if needed and starting the container:
+#### Run a command
+
+Run a command in a new container, pulling the image if needed and starting the container:
 
 ```shell
 docker run --rm bash echo Hello!
@@ -165,20 +229,214 @@ docker run --rm bash echo Hello!
 |---------|-------|--------------------------------------------------|
 | `--rm`  |       | Automatically remove the container when it exits |
 
+#### Run in interactive mode
+
+Start a container in interactive mode:
+
 ```shell
 docker run -it --rm bash
 ```
+
 | Option          | Short | Description                          |
 |-----------------|-------|--------------------------------------|
 | `--interactive` |  `-i` | Keep STDIN open even if not attached |
 | `--tty`         |  `-t` | Allocate a pseudo-TTY                |
+
+#### Run and map a port (with [nginx](https://hub.docker.com/_/nginx) for example)
+
+1 - Start a container with a port (in the terminal 1):
+
+```shell
+docker run ---rm -p 8080:80 nginx
+```
+
+| Option        | Short | Description                               |
+|---------------|-------|-------------------------------------------|
+| `--publish`   | `-p`  | Publish a container's port(s) to the host |
+
+2 - Find the port (in the terminal 2):
+
+```shell
+docker ps
+```
+
+```
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                                   NAMES
+abcdef123456   nginx     "/docker-entrypoint.…"   1 minutes ago   Up 1 minutes   0.0.0.0:8080->80/tcp, :::8080->80/tcp   container_name
+```
+
+3 - End go on http://0.0.0.0:8080/ (in this case).
+
+4 - You can also inspect the container to find the `HostIp`:
+
+```shell
+docker inspect container_name
+```
+
+```
+...
+        "HostConfig": {
+            ...
+            "Ports": {
+                "80/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "8080"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "8080"
+                    }
+                ]
+            },
+            ...
+        },
+ ...
+```
+
+### Network
+
+#### Create a network between two containers
+
+##### In the terminal 1
+
+Clone a bridge:
+
+```shell
+docker network create --driver=bridge bridge_clone
+```
+
+List the networks:
+
+```shell
+docker network list
+```
+
+```
+NETWORK ID     NAME            DRIVER    SCOPE
+b0e195e4bcc2   bridge_clone    bridge    local
+```
+
+Run the container 1 (with [bash](https://hub.docker.com/_/bash) for example):
+
+```shell
+docker run -it --rm --network=bridge_clone --name=srv1 bash
+```
+
+##### In the terminal 2
+
+Run the container 2 (with [bash](https://hub.docker.com/_/bash) for example):
+
+```shell
+docker run -it --rm --network=bridge_clone --name=srv2 bash
+```
+
+##### In the terminal 1
+
+Yon can ping the `srv2`:
+
+```shell
+bash-5.2# ping srv2
+PING srv2 (172.19.0.3): 56 data bytes
+64 bytes from 172.19.0.3: seq=0 ttl=64 time=0.149 ms
+```
+
+##### In the terminal 2
+
+Yon can ping the `srv1`:
+
+```shell
+bash-5.2# ping srv2
+PING srv2 (172.19.0.3): 56 data bytes
+64 bytes from 172.19.0.3: seq=0 ttl=64 time=0.149 ms
+```
+
+#### Remove a network
+
+List the networks:
+
+```shell
+docker network list
+```
+
+```
+NETWORK ID     NAME            DRIVER    SCOPE
+b0e195e4bcc2   bridge_clone    bridge    local
+```
+
+Remove a network:
+
+```shell
+docker network rm bridge_clone
+```
+
+### Volume
+
+#### Map a volume (with [bash](https://hub.docker.com/_/bash) for example)
+
+1 - Create a new file on your host:
+
+```shell
+echo Hello! > my_file
+cat my_file
+Hello!
+```
+
+2 - Start a container with a volume:
+
+```shell
+docker run -it --rm -v $(pwd)/my_file:/hello bash
+```
+
+3 - In the container, you can read `/hello`:
+
+```shell
+cat /hello
+Hello!
+```
+
+```shell
+echo Bonjour >> /hello
+cat /hello
+Hello!
+Bonjour
+```
+
+4 - On the host, you have also the last modification:
+
+```shell
+cat /my_file
+Hello!
+Bonjour
+```
+
+#### Manage a volume (with [bash](https://hub.docker.com/_/bash) for example)
+
+1 - Create my file:
+
+```shell
+mkdir src
+echo Hello! >> src/my_file
+cat src/my_file
+Hello!
+```
+
+2 - Create a volume:
+
+```shell
+docker volume create my_data
+```
+
+```shell
+docker volume ls
+```
 
 ### Pull
 
 Pull the image from docker hub repository:
 
 ```shell
-docker pull <image-info>
+docker pull IMAGE_INFO
 ```
 
 ### Hub
