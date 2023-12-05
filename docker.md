@@ -412,23 +412,47 @@ Bonjour
 
 #### Manage a volume (with [bash](https://hub.docker.com/_/bash) for example)
 
-1 - Create my file:
+1 - Create a volume:
 
 ```shell
-mkdir src
-echo Hello! >> src/my_file
-cat src/my_file
-Hello!
-```
-
-2 - Create a volume:
-
-```shell
-docker volume create my_data
+docker volume create my_volume
 ```
 
 ```shell
 docker volume ls
+```
+
+2 - Start a container with the volume my_volume
+
+```shell
+docker run -it --rm -v my_volume:/src bash
+```
+
+3 - Create my file in the container:
+
+```shell
+bash-5.2# echo Hello! > /src/my_file
+bash-5.2# cat src/my_file 
+```
+
+4 - Inspect the volume:
+
+```shell
+docker volume inspect my_volume
+```
+
+``` 
+[
+      {
+        "CreatedAt": "2023-11-10T15:57:42+01:00",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/my_volume/_data",
+        "Name": "my_volume",
+        "Options": null,
+        "Scope": "local"
+    }
+]
 ```
 
 ### Pull
@@ -452,6 +476,7 @@ Login to docker hub
 ```shell
 docker login -u username -p password
 ```
+
 | Option       | Short | Description |
 |--------------|-------|-------------|
 | `--user`     | `-u`  | Username    |
@@ -475,7 +500,76 @@ docker version
 
 ## Docker Compose
 
-WIP
+### Create and start containers
+
+```shell
+docker compose up
+```
+
+Run containers in the background:
+
+```shell
+docker compose up -d
+```
+
+| Option        | Short | Description                                     |
+|---------------|-------|-------------------------------------------------|
+| `--detach`    | `-d`  | Detached mode: Run containers in the background |
+
+### Stop services
+
+```shell
+docker compose stop
+```
+
+### Start services
+
+```shell
+docker compose start
+```
+
+### Stop and remove containers, networks
+
+```shell
+docker compose down
+```
+
+Remove also volumes:
+
+```shell
+docker compose down -v
+```
+
+| Option         | Short | Description                                                                                                              |
+|----------------|-------|--------------------------------------------------------------------------------------------------------------------------|
+| `--volumes`    | `-v`  | Remove named volumes declared in the "volumes" section of the Compose file\<br/>and anonymous volumes attached to containers. |
+
+
+## Others
+
+### Error: `listen tcp4 0.0.0.0:80: bind: address already in use`
+
+See the network statistics:
+
+```shell
+sudo netstat -pna | grep :80
+```
+
+```
+tcp6       0      0 :::80        :::*        LISTEN        1487/apache2
+```
+
+Stop Apache server:
+
+```shell
+sudo service apache2 stop
+```
+
+Start Apache server:
+
+```shell
+sudo service apache2 start
+```
 
 ## Resources
 

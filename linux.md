@@ -213,6 +213,15 @@ wc file.text
 - `207`: words
 - `1000`: byte-size
 
+## VScode install
+
+- Download from https://code.visualstudio.com/
+
+```shell
+sudo apt install
+sudo dpkg -i code_1.xx.x-1234567890_amd64.deb
+```
+
 ## Resources
 
 - https://kinsta.com/blog/linux-commands/
