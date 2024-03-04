@@ -1,30 +1,4 @@
-# Angular: Essential Commands
-
-<!-- TOC -->
-* [Angular: Essential Commands](#angular-essential-commands)
-  * [NPM](#npm)
-  * [Angular CLI](#angular-cli)
-    * [Global installing](#global-installing)
-    * [Global updating (all in one command)](#global-updating-all-in-one-command)
-  * [Generate a ...](#generate-a-)
-    * [Component](#component)
-    * [Service](#service)
-    * [Pipe](#pipe)
-    * [Directive](#directive)
-    * [Enum](#enum)
-    * [Module](#module)
-    * [Class](#class)
-    * [Interface](#interface)
-    * [Guard](#guard)
-    * [Interceptor](#interceptor)
-  * [Serve](#serve)
-  * [Testing](#testing)
-  * [Linting](#linting)
-  * [Environments](#environments)
-  * [Generate a new Angular app](#generate-a-new-angular-app)
-    * [Using directly ESlint schematics & Prettier (in root)](#using-directly-eslint-schematics--prettier-in-root)
-  * [Resources](#resources)
-<!-- TOC -->
+# Angular
 
 ## NPM
 
@@ -43,8 +17,8 @@ npm install -g @angular/cli
 ### Global updating (all in one command)
 
 ```shell
-npm uninstall -g @angular/cli cache clean;\
-npm install -g @angular/cli@latest;\
+npm uninstall -g @angular/cli cache clean
+npm install -g @angular/cli@latest
 ng version
 ```
 
@@ -200,13 +174,74 @@ ng serve
 All in one line (without `ng serve`):
 
 ```shell
-ng new app --directory ./ --create-application false --defaults;\
-ng add @angular-eslint/schematics;\
-ng generate @angular-eslint/schematics:application app --project-root --routing --style scss --defaults --strict;\
-npm install --save-dev --save-exact prettier;\
-echo {} >.prettierrc.json;\
-cp .gitignore .prettierignore;\
-npx prettier --write .
+. ./scripts/angular-my-app-generator.sh
+```
+
+### Extra
+
+#### NbBootstrap (theme)
+
+> https://ng-bootstrap.github.io/
+
+```shell
+ng add @ng-bootstrap/ng-bootstrap
+```
+
+#### Fontawesome (icons)
+
+> https://github.com/FortAwesome/angular-fontawesome
+
+```shell
+ng add @fortawesome/angular-fontawesome
+```
+
+#### Transloco (i18n)
+
+> https://ngneat.github.io/transloco/
+
+```shell
+ng add @ngneat/transloco
+```
+
+#### Elf (store)
+
+> https://ngneat.github.io/elf/
+
+```shell
+npx @ngneat/elf-cli install
+```
+
+#### Moment (dates & times)
+
+> https://momentjs.com/
+
+```shell
+npm install moment --save
+```
+
+```typescript
+import * as moment from 'moment';
+import 'moment/locale/pt-br';
+
+console.log(moment.locale()); // en
+moment.locale('fr');
+console.log(moment.locale()); // fr
+moment.locale('pt-br');
+console.log(moment.locale()); // pt-br
+```
+
+## angular.json
+
+### @schematics
+
+```json
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "standalone": true,
+          "changeDetection": "OnPush"
+        }
+      }
 ```
 
 ## Resources

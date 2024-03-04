@@ -1,4 +1,4 @@
-# PHP: Essential Commands
+# PHP
 
 ## Install Linux
 

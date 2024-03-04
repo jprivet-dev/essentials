@@ -1,31 +1,4 @@
-# Docker & Docker Compose: Essential Commands
-
-<!-- TOC -->
-* [Docker & Docker Compose: Essential Commands](#docker--docker-compose-essential-commands)
-  * [Docker](#docker)
-    * [Build](#build)
-    * [Images](#images)
-      * [List](#list)
-      * [Remove](#remove)
-    * [Containers](#containers)
-      * [List](#list-1)
-      * [Stop](#stop)
-      * [Start / Restart](#start--restart)
-      * [Remove](#remove-1)
-      * [Various](#various)
-    * [Exec](#exec)
-    * [Run](#run)
-      * [Run a command](#run-a-command)
-      * [Run in interactive mode](#run-in-interactive-mode)
-      * [Run and map a volume (with bash for example)](#run-and-map-a-volume-with-bash-for-example)
-      * [Run and map a port (with nginx for example)](#run-and-map-a-port-with-nginx-for-example)
-    * [Pull](#pull)
-    * [Hub](#hub)
-    * [Stats](#stats)
-    * [Version](#version)
-  * [Docker Compose](#docker-compose)
-  * [Resources](#resources)
-<!-- TOC -->
+# Docker & Docker Compose
 
 ## Docker
 

@@ -1,4 +1,12 @@
-# PHP: Essential Commands
+# PHP
+
+## Install 
+
+```shell
+sudo apt udpate
+sudo apt install curl
+sudo apt install php php-curl
+```
 
 ## Launch internal server
 

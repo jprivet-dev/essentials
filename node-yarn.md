@@ -1,9 +1,4 @@
-# Node / Yarn: Essentials Commands
-
-<!-- TOC -->
-* [Node / Yarn: Essentials Commands](#node--yarn-essentials-commands)
-  * [Install / Uninstall](#install--uninstall)
-<!-- TOC -->
+# Node / Yarn
 
 ## Install / Uninstall
 
