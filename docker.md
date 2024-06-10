@@ -1,5 +1,7 @@
 # Docker & Docker Compose
 
+> Return to [README](README.md).
+
 ## Docker
 
 ### Images
@@ -517,6 +519,11 @@ docker compose down -v
 |----------------|-------|--------------------------------------------------------------------------------------------------------------------------|
 | `--volumes`    | `-v`  | Remove named volumes declared in the "volumes" section of the Compose file\<br/>and anonymous volumes attached to containers. |
 
+### Remove image
+
+```shell
+docker compose rm
+```
 
 ## Others
 
@@ -544,9 +551,18 @@ Start Apache server:
 sudo service apache2 start
 ```
 
+## Group
+
+```shell
+sudo usermod -aG docker $USER
+sudo reboot
+```
+
 ## Resources
 
 * https://docs.docker.com/engine/reference/commandline/docker/
 * https://docs.docker.com/compose/reference/
 * https://www.stacksimplify.com/aws-eks/docker-basics/docker-commands/
 * https://codenotary.com/blog/extremely-useful-docker-commands
+
+> Return to [README](README.md).

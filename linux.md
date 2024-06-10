@@ -1,5 +1,7 @@
 # Linux
 
+> Return to [README](README.md).
+
 ## Print version of Ubuntu
 
 ```shell
@@ -40,6 +42,12 @@ xkill
 
 ... and click on a window.
 
+## List all installed packages
+
+```shell
+apt list --installed
+```
+
 ## netstat
 
 ```shell
@@ -55,6 +63,32 @@ sudo apt install
 sudo dpkg -i code_1.xx.x-1234567890_amd64.deb
 ```
 
+## Install deb Files
+
+```shell
+sudo dpkg -i file.deb
+```
+
+## Checksums
+
+```shell
+sha256sum file.tar.gz > sha256sums.txt
+```
+
+```shell
+sha512sum file.tar.gz > sha512sums.txt
+```
+
+## Citrix
+
+### Pre-requisite check
+
+```shell
+/opt/Citrix/ICAClient/util/workspacecheck.sh
+```
+
 ## Resources
 
 - https://kinsta.com/blog/linux-commands/
+
+> Return to [README](README.md).

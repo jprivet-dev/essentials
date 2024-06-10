@@ -1,5 +1,7 @@
 # Git
 
+> Return to [README](README.md).
+
 ## Branch
 
 ### Create
@@ -20,6 +22,23 @@ git switch --orphan <new_branch>
 
 ```shell
 git checkout --orphan <new_branch>
+```
+
+## Specific Git configuration for all subdirectories
+
+- Create `~/my/folder/.gitconfig`:
+
+```
+[user]
+    name = Aly Sivji
+    email = client-work@alysivji.com
+```
+
+- Update the global ~/.gitconfig:
+
+```
+[includeIf "gitdir:~/my/folder/"]
+    path = ~/my/folder/.gitconfig
 ```
 
 ## Various
@@ -50,3 +69,4 @@ fi
 
 * https://rubicotech.com/blog/advanced-git-features
 
+> Return to [README](README.md).

@@ -1,10 +1,18 @@
 # Bash
 
+> Return to [README](README.md).
+
 ## Insert line in ahead
 
 ```shell
 line="const msg='Hello!'"
 sed  -i "1i ${line}" ./index.ts
+```
+
+## Replace in file
+
+```shell
+sed -i 's/APP_ENV=prod/APP_ENV=dev/g' .env"
 ```
 
 ## Print working directory
@@ -100,8 +108,14 @@ cat file.text
 ## Permissions
 
 ```shell
-chmod +x script
+sudo chmod +x script
 ./script
+```
+
+Get the chmod numerical value for a file:
+
+```shell
+stat --format '%a' <file>
 ```
 
 Basic permissions:
@@ -147,3 +161,5 @@ wc file.text
 - `37`: lines
 - `207`: words
 - `1000`: byte-size
+
+> Return to [README](README.md).
