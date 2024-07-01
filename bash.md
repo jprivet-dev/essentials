@@ -163,3 +163,9 @@ wc file.text
 - `1000`: byte-size
 
 > Return to [README](README.md).
+
+## Now
+
+```shell
+  now=$(date +"%Y%m%d-%H%M%S")
+```
