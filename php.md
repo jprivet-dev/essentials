@@ -28,6 +28,8 @@ bool(false)
 ```
 
 ```php
+<?php
+
 $d1 = new DateTime('2008-08-03 14:52:10');
 $d2 = new DateTime('2008-08-03 14:52:10');
 
