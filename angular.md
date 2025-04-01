@@ -1,18 +1,27 @@
-# Angular: Essential Commands
+# Angular
+
+> ⬅️ [README](README.md)
+
+## NPM
+
+```shell
+npm install -g npm
+```
 
 ## Angular CLI
 
-### Installing
+### Global installing
 
 ```shell
 npm install -g @angular/cli
 ```
 
-### Updating (all in one line)
+### Global updating (all in one command)
 
 ```shell
-npm uninstall -g @angular/cli cache clean \
+npm uninstall -g @angular/cli cache clean
 npm install -g @angular/cli@latest
+ng version
 ```
 
 ## Generate a ...
@@ -167,13 +176,74 @@ ng serve
 All in one line (without `ng serve`):
 
 ```shell
-ng new app --directory ./ --create-application false --defaults; \
-ng add @angular-eslint/schematics; \
-ng generate @angular-eslint/schematics:application app --project-root --routing --style scss --defaults --strict; \
-npm install --save-dev --save-exact prettier; \
-echo {} >.prettierrc.json; \
-cp .gitignore .prettierignore; \
-npx prettier --write .
+. ./scripts/angular-my-app-generator.sh
+```
+
+### Extra
+
+#### NbBootstrap (theme)
+
+> https://ng-bootstrap.github.io/
+
+```shell
+ng add @ng-bootstrap/ng-bootstrap
+```
+
+#### Fontawesome (icons)
+
+> https://github.com/FortAwesome/angular-fontawesome
+
+```shell
+ng add @fortawesome/angular-fontawesome
+```
+
+#### Transloco (i18n)
+
+> https://ngneat.github.io/transloco/
+
+```shell
+ng add @ngneat/transloco
+```
+
+#### Elf (store)
+
+> https://ngneat.github.io/elf/
+
+```shell
+npx @ngneat/elf-cli install
+```
+
+#### Moment (dates & times)
+
+> https://momentjs.com/
+
+```shell
+npm install moment --save
+```
+
+```typescript
+import * as moment from 'moment';
+import 'moment/locale/pt-br';
+
+console.log(moment.locale()); // en
+moment.locale('fr');
+console.log(moment.locale()); // fr
+moment.locale('pt-br');
+console.log(moment.locale()); // pt-br
+```
+
+## angular.json
+
+### @schematics
+
+```json
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "standalone": true,
+          "changeDetection": "OnPush"
+        }
+      }
 ```
 
 ## Resources
@@ -181,3 +251,5 @@ npx prettier --write .
 * https://angular.io/cli
 * https://www.digitalocean.com/community/tutorials/angular-angular-cli-reference
 * https://zeroesandones.medium.com/how-to-use-environment-variable-in-angular-16-29b5cbb6bd85
+
+> ⬅️ [README](README.md)
