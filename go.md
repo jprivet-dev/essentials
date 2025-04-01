@@ -1,6 +1,6 @@
-# PHP
+# Go
 
-> Return to [README](README.md).
+> ⬅️ [README](README.md)
 
 ## Install Linux
 
@@ -54,4 +54,4 @@ Hello!
 
 - https://go.dev/
 
-> Return to [README](README.md).
+> ⬅️ [README](README.md)

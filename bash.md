@@ -1,12 +1,18 @@
 # Bash
 
-> Return to [README](README.md).
+> ⬅️ [README](README.md)
 
 ## Insert line in ahead
 
 ```shell
 line="const msg='Hello!'"
 sed  -i "1i ${line}" ./index.ts
+```
+
+## Insert line in the end
+
+```shell
+echo "New line" >> file.txt
 ```
 
 ## Replace in file
@@ -33,6 +39,10 @@ tail -f filename
 
 ```shell
 cp oldFile.txt newFile.txt
+```
+
+```shell
+cp -r origin/. target
 ```
 
 ### Directories
@@ -124,6 +134,16 @@ Basic permissions:
 - `w`: write
 - `x`: execute
 
+```shell
+sudo cho²wn -R $(id -u):$(id -g) .
+```
+
+## Zip
+
+```shell
+zip -r myarchive.zip mydir -x mydir/excludedDir1\*  mydir/excludedDir2\*
+```
+
 ## Unzip (.zip)
 
 ```shell
@@ -140,6 +160,8 @@ gunzip file.sql.gz
 
 ```shell
 echo "$USER"
+id -u
+id -g
 ```
 
 ## Test network
@@ -162,10 +184,26 @@ wc file.text
 - `207`: words
 - `1000`: byte-size
 
-> Return to [README](README.md).
-
 ## Now
 
 ```shell
-  now=$(date +"%Y%m%d-%H%M%S")
+now=$(date +"%Y%m%d-%H%M%S")
+day=$(date +"%Y-%m-%d")
 ```
+
+## Show folder size
+
+```shell
+du -hs myfolder
+du -h --max-depth=1 myfolder
+```
+
+## Path
+
+```shell
+pwd
+echo ${PWD}
+echo ${PWD##*/}
+```
+
+> ⬅️ [README](README.md)

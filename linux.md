@@ -1,6 +1,6 @@
 # Linux
 
-> Return to [README](README.md).
+> ⬅️ [README](README.md)
 
 ## Print version of Ubuntu
 
@@ -87,8 +87,44 @@ sha512sum file.tar.gz > sha512sums.txt
 /opt/Citrix/ICAClient/util/workspacecheck.sh
 ```
 
+## Tree
+
+```shell
+tree -A -L 2 -F --dirsfirst
+```
+
+```
+  -A            Print ANSI lines graphic indentation lines.
+  -L level      Descend only level directories deep.
+  -F            Appends '/', '=', '*', '@', '|' or '>' as per ls -F.
+  --dirsfirst   List directories before files (-U disables).
+```
+
+```
+./
+├── app/
+│   ├── ...
+│   └── ...
+├── docker/
+│   ├── ...
+│   └── ...
+├── scripts/
+│   ├── ...
+│   └── ...
+├── aliases
+├── LICENSE
+├── Makefile
+└── README.md
+```
+
+## History
+
+```
+history | grep git | tail -n100
+```
+
 ## Resources
 
 - https://kinsta.com/blog/linux-commands/
 
-> Return to [README](README.md).
+> ⬅️ [README](README.md)

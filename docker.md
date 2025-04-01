@@ -1,6 +1,6 @@
 # Docker & Docker Compose
 
-> Return to [README](README.md).
+> ⬅️ [README](README.md)
 
 ## Docker
 
@@ -86,8 +86,9 @@ docker stop CONTAINER_ID
 
 Stops all running containers:
 
+
 ```shell
-docker stop $(docker ps -a -q) 
+docker stop $(docker ps -a -q)
 ```
 
 | Option    | Short | Description                                      |
@@ -565,4 +566,4 @@ sudo reboot
 * https://www.stacksimplify.com/aws-eks/docker-basics/docker-commands/
 * https://codenotary.com/blog/extremely-useful-docker-commands
 
-> Return to [README](README.md).
+> ⬅️ [README](README.md)

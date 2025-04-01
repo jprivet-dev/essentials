@@ -1,6 +1,6 @@
 # Symfony
 
-> Return to [README](README.md).
+> ⬅️ [README](README.md)
 
 ## Install Symfony CLI (Global)
 
@@ -30,7 +30,20 @@ rm -rf app
 
 ### Serializer
 
-#### decode / denormalize
+#### Deserialize (decode + denormalize)
+
+```php
+class BookController {
+    public function books(SerializerInterface $serializer) {
+        $booksJson = file_get_contents('https//my.books.com/api');
+        $books = $serializer->deserialize($booksJson, 'App\Entity\Book[]', 'json');
+        
+        return $this->render('books/index.html.twig', [
+            'books' => $books
+        ]);
+    }
+}
+```
 
 ```php
 class BookController {
@@ -46,25 +59,9 @@ class BookController {
 }
 ```
 
-#### deserialize
-
-> deserialize = decode + denormalize
-
-```php
-class BookController {
-    public function books(SerializerInterface $serializer) {
-        $booksJson = file_get_contents('https//my.books.com/api');
-        $books = $serializer->deserialize($booksJson, 'App\Entity\Book[]', 'json');
-        
-        return $this->render('books/index.html.twig', [
-            'books' => $books
-        ]);
-    }
-}
-```
 
 ## Resources
 
 - TODO
 
-> Return to [README](README.md).
+> ⬅️ [README](README.md)

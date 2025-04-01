@@ -1,5 +1,9 @@
 # SQL
 
+> ⬅️ [README](README.md)
+
+## Base
+
 ```sql
 SELECT * FROM user;
 ```
@@ -7,17 +11,18 @@ SELECT * FROM user;
 ```sql
 SHOW TABLES;
 ```
+## Docker
 
-## Generating a dump
+### Generating a dump
 
 ```shell
-docker compose exec mysql mysqldump -u root --databases mydb > dump_$(date +%Y%m%d_%H%M%S).sql
+docker compose exec mysql mysqldump -u root -p password mydb > dump_$(date +%Y%m%d_%H%M%S).sql
 ```
 
-## Import a dump
+### Import a dump
 
 ```shell
 docker compose exec mysql mysql -u root mydb < dump.sql
 ```
 
-> Return to [README](README.md).
+> ⬅️ [README](README.md)

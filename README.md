@@ -8,6 +8,8 @@
 * [Linux](linux.md)
 * [Node / Yarn](node-yarn.md)
 * [PHP & Composer](php-composer.md)
+* [PHP](php.md)
+* [Rector](rector.md)
 * [SQL](sql.md)
 * [Symfony](symfony.md)
 

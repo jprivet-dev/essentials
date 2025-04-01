@@ -1,6 +1,6 @@
 # Node / Yarn
 
-> Return to [README](README.md).
+> ⬅️ [README](README.md)
 
 ## Install / Uninstall
 
@@ -14,4 +14,4 @@ yarn add lib
 yarn remove lib
 ```
 
-> Return to [README](README.md).
+> ⬅️ [README](README.md)
