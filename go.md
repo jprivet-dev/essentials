@@ -1,6 +1,6 @@
 # Go
 
-> ⬅️ [README](README.md)
+⬅️ [README](README.md)
 
 ## Install Linux
 
@@ -54,4 +54,4 @@ Hello!
 
 - https://go.dev/
 
-> ⬅️ [README](README.md)
+⬅️ [README](README.md)

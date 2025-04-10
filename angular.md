@@ -1,6 +1,6 @@
 # Angular
 
-> ⬅️ [README](README.md)
+⬅️ [README](README.md)
 
 ## NPM
 
@@ -252,4 +252,4 @@ console.log(moment.locale()); // pt-br
 * https://www.digitalocean.com/community/tutorials/angular-angular-cli-reference
 * https://zeroesandones.medium.com/how-to-use-environment-variable-in-angular-16-29b5cbb6bd85
 
-> ⬅️ [README](README.md)
+⬅️ [README](README.md)

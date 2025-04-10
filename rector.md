@@ -1,6 +1,6 @@
 # Rector
 
-> ⬅️ [README](README.md)
+⬅️ [README](README.md)
 
 # Configuration example
 
@@ -61,4 +61,4 @@ return RectorConfig::configure()
     ->withImportNames(importShortClasses: false); // See https://getrector.com/documentation/import-names
 ```
 
-> ⬅️ [README](README.md)
+⬅️ [README](README.md)

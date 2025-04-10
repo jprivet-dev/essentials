@@ -1,6 +1,6 @@
 # Git
 
-> ⬅️ [README](README.md)
+⬅️ [README](README.md)
 
 ## Branch
 
@@ -96,4 +96,4 @@ ssh -T git@gitlab.domain.fr -vvv
 
 * https://rubicotech.com/blog/advanced-git-features
 
-> ⬅️ [README](README.md)
+⬅️ [README](README.md)

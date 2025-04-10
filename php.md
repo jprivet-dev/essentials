@@ -1,6 +1,6 @@
 # PHP
 
-> ⬅️ [README](README.md)
+⬅️ [README](README.md)
 
 ## Dates & Time
 
@@ -210,6 +210,7 @@ var_dump(
     in_array("pineapples", $array, true),   // false
 );
 ```
+
 #### array_search
 
 ```php
@@ -458,23 +459,17 @@ printf("Order status (value): %s\n", $order->getStatus()->value);   // 1
 
 ### Const
 
-
 ### Fibonacci
 
 #### Interface
 
 ```php
-<?php declare(strict_types=1);
-
-namespace App\Util\Example;
+namespace App\Fibonacci;
 
 interface FibonacciInterface
 {
     /**
      * Returns the rank term `n` from the Fibonacci sequence.
-     *
-     * @param int $n
-     * @return int
      */
     public function rank(int $n): int;
 }
@@ -485,19 +480,15 @@ interface FibonacciInterface
 > Which is the best implementation?
 
 ```php
-<?php declare(strict_types=1);
+namespace App\Fibonacci;
 
-namespace App\Util\Example;
-
-class Fibonacci01 implements FibonacciInterface
+class FibonacciV1 implements FibonacciInterface
 {
     /**
-     * {@inheritdoc}
+     * Naive recursive algorithm.
      */
     public function rank(int $n): int
     {
-        // Naive recursive algorithm.
-
         if ($n <= 1) {
             return $n;
         }
@@ -508,19 +499,15 @@ class Fibonacci01 implements FibonacciInterface
 ```
 
 ```php
-<?php declare(strict_types=1);
+namespace App\Fibonacci;
 
-namespace App\Util\Example;
-
-class Fibonacci02 implements FibonacciInterface
+class FibonacciV2 implements FibonacciInterface
 {
     /**
-     * {@inheritdoc}
+     * Linear algorithm.
      */
     public function rank(int $n): int
     {
-        // Linear algorithm.
-
         $i = 0;
         $j = 1;
 
@@ -536,38 +523,30 @@ class Fibonacci02 implements FibonacciInterface
 ```
 
 ```php
-<?php declare(strict_types=1);
+namespace App\Fibonacci;
 
-namespace App\Util\Example;
-
-class Fibonacci03 implements FibonacciInterface
+class FibonacciV3 implements FibonacciInterface
 {
     /**
-     * {@inheritdoc}
+     * Terminal recursive algorithm.
      */
     public function rank(int $n, int $a = 0, int $b = 1): int
     {
-        // Terminal recursive algorithm.
-
         return ($n > 0) ? $this->rank($n - 1, $b, $a + $b) : $a;
     }
 }
 ```
 
 ```php
-<?php declare(strict_types=1);
+namespace App\Fibonacci;
 
-namespace App\Util\Example;
-
-class Fibonacci04 implements FibonacciInterface
+class FibonacciV4 implements FibonacciInterface
 {
-    /**
-     * {@inheritdoc}
-     */
+   /**
+    * "It does the job" algorithm.
+    */
     public function rank(int $n): int
     {
-        // "It does the job" algorithm.
-
         switch ($n) {
             case 1:
             case 2:
@@ -603,4 +582,4 @@ class Fibonacci04 implements FibonacciInterface
 
 - https://medium.com/@vlreshet/4-reasons-to-use-php-enums-instead-of-old-fashioned-class-constants-86adf2282991
 
-> ⬅️ [README](README.md)
+⬅️ [README](README.md)
