@@ -1,6 +1,6 @@
 # PHP & Composer
 
-> ⬅️ [README](README.md)
+⬅️ [README](README.md)
 
 ## PHP
 
@@ -117,4 +117,4 @@ dep --version
 Deployer 7.5.12
 ```
 
-> ⬅️ [README](README.md)
+⬅️ [README](README.md)

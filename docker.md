@@ -1,6 +1,6 @@
 # Docker & Docker Compose
 
-> ⬅️ [README](README.md)
+⬅️ [README](README.md)
 
 ## Docker
 
@@ -566,4 +566,4 @@ sudo reboot
 * https://www.stacksimplify.com/aws-eks/docker-basics/docker-commands/
 * https://codenotary.com/blog/extremely-useful-docker-commands
 
-> ⬅️ [README](README.md)
+⬅️ [README](README.md)

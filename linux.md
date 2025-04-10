@@ -1,6 +1,6 @@
 # Linux
 
-> ⬅️ [README](README.md)
+⬅️ [README](README.md)
 
 ## Print version of Ubuntu
 
@@ -120,6 +120,7 @@ tree -A -L 2 -F --dirsfirst
 ## History
 
 ```
+history 10
 history | grep git | tail -n100
 ```
 
@@ -127,4 +128,4 @@ history | grep git | tail -n100
 
 - https://kinsta.com/blog/linux-commands/
 
-> ⬅️ [README](README.md)
+⬅️ [README](README.md)

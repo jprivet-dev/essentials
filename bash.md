@@ -1,6 +1,6 @@
 # Bash
 
-> ⬅️ [README](README.md)
+⬅️ [README](README.md)
 
 ## Insert line in ahead
 
@@ -19,6 +19,13 @@ echo "New line" >> file.txt
 
 ```shell
 sed -i 's/APP_ENV=prod/APP_ENV=dev/g' .env"
+```
+
+## Replace in string
+
+```shell
+base="dump.sql"              # dump.sql
+target=${base/.sql/-fix.sql} # dump-fix.sql
 ```
 
 ## Print working directory
@@ -135,7 +142,8 @@ Basic permissions:
 - `x`: execute
 
 ```shell
-sudo cho²wn -R $(id -u):$(id -g) .
+sudo chown -R $(id -u):$(id -g) .
+sudo chown -R $USER .
 ```
 
 ## Zip
@@ -206,4 +214,4 @@ echo ${PWD}
 echo ${PWD##*/}
 ```
 
-> ⬅️ [README](README.md)
+⬅️ [README](README.md)

@@ -11,7 +11,7 @@
 * [PHP](php.md)
 * [Rector](rector.md)
 * [SQL](sql.md)
-* [Symfony](symfony.md)
+* [Symfony](symfony/symfony.md)
 
 ## License
 
